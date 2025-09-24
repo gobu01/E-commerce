@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desi Vogue Emporium - Authentic Indian Attire</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Desi Vogue</a>
+            <nav class="main-nav">
+                <a href="#products">Sarees</a>
+                <a href="#new-arrivals">Kurtas</a>
+                <a href="#">Jewelry</a>
+                <a href="#">Sale</a>
+            </nav>
+            <div class="header-icons">
+                <a href="#" id="cart-button" class="cart-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cart-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+                <button id="mobile-menu-btn" class="mobile-menu-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav" class="mobile-nav">
+        <a href="#products">Sarees</a>
+        <a href="#new-arrivals">Kurtas</a>
+        <a href="#">Jewelry</a>
+        <a href="#">Sale</a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Elegance in Every Thread</h1>
+                <p>Discover timeless Indian craftsmanship and contemporary designs that tell a story.</p>
+                <a href="#products" class="btn btn-primary">Shop The Collection</a>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section id="products" class="product-section">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <div id="product-grid" class="product-grid">
+                    <!-- Product cards will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- New Arrivals Section -->
+        <section id="new-arrivals" class="product-section bg-cream">
+             <div class="container">
+                <h2 class="section-title">New Arrivals</h2>
+                <div id="new-arrivals-grid" class="product-grid">
+                    <!-- New arrival cards will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"The saree I bought is absolutely stunning! The quality is top-notch and I received so many compliments. Will definitely shop again."</p>
+                        <h4>- Priya S.</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Excellent customer service and fast shipping. The kurta fits perfectly and the fabric is so comfortable. Highly recommended!"</p>
+                        <h4>- Rohan M.</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="logo">Desi Vogue</p>
+            <div class="footer-links">
+                 <a href="#">About Us</a>
+                 <a href="#">Contact</a>
+                 <a href="#">Shipping & Returns</a>
+            </div>
+            <p class="copyright">&copy; 2025 Desi Vogue Emporium. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

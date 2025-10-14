@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+     <link rel="icon" type="image/x-icon" href="src/logo.png">
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,7 +28,7 @@
                 <a href="#" class="nav-link text-slate-600 hover:text-indigo-600 font-medium" data-category="Laptop">Laptops</a>
                 <a href="#" class="nav-link text-slate-600 hover:text-indigo-600 font-medium" data-category="Phone">Phones</a>
                 <a href="#" class="nav-link text-slate-600 hover:text-indigo-600 font-medium" data-category="Accessory">Accessories</a>
-                <a href="#" class="nav-link text-slate-600 hover:text-indigo-600 font-medium" data-category="about">About</a>
+                <a href="#" class="nav-link text-slate-600 hover:text-indigo-600 font-medium" data-category="about"></a>
             </nav>
             <div id="cart-button-container" class="flex items-center space-x-4">
                 <button id="cart-button" class="relative p-2 rounded-full text-slate-600 hover:bg-slate-200 hover:text-indigo-600 transition-colors">
@@ -81,14 +82,58 @@
                         <!-- Product cards will be dynamically inserted here -->
                     </div>
                 </div>
+                <section id="about-main" class="page-section py-20 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-extrabold text-slate-800 mb-4 fade-in-up">The Spark Behind the Screen</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-16 fade-in-up" style="animation-delay: 0.2s;">From a small garage in Chennai to your doorstep, our passion for technology drives everything we do.</p>
+
+                <div class="text-left max-w-4xl mx-auto space-y-6 mb-16 fade-in-up text-lg" style="animation-delay: 0.4s;">
+                    <p class="text-slate-700 leading-relaxed">ElectroMart wasn't born in a boardroom; it was born from a shared passion. In 2024, a group of tech enthusiasts in Chennai, frustrated with the lack of a single, trustworthy source for high-quality, curated electronics, decided to build what they couldn't find. We started small, operating out of a garage, testing every device ourselves and sharing our honest opinions with our first few customers.</p>
+                    <p class="text-slate-700 leading-relaxed">Today, we've grown into a leading online destination for tech lovers across India, but our core mission remains the same: to demystify technology and make the best gadgets accessible to everyone. We believe in the power of technology to connect, create, and inspire, and we're dedicated to helping you find the perfect device to power your passions.</p>
+                </div>
+                <h3 class="text-3xl font-bold text-slate-800 mb-10 fade-in-up" style="animation-delay: 0.6s;">Why Choose ElectroMart?</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div class="value-card fade-in-up" style="animation-delay: 0.8s;">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Expert Curation</h4>
+                        <p class="text-slate-600">Our experts test and select only the best-in-class devices, so you can shop with confidence.</p>
+                    </div>
+                    <div class="value-card fade-in-up" style="animation-delay: 1s;">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 8h6m-5 0a3 3 0 110 6H9l-2 2V9a1 1 0 011-1z"></path><path d="M15 8a3 3 0 100 6h-2l2 2V9a1 1 0 00-1-1z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Transparent Pricing</h4>
+                        <p class="text-slate-600">All prices are in INR (₹), inclusive of taxes. No hidden fees. What you see is what you pay.</p>
+                    </div>
+                     <div class="value-card fade-in-up" style="animation-delay: 1.2s;">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-2h8a1 1 0 001-1zM21 11V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Fast Shipping</h4>
+                        <p class="text-slate-600">From our warehouse in Chennai, we ship across India, ensuring your new tech reaches you quickly.</p>
+                    </div>
+                    <div class="value-card fade-in-up" style="animation-delay: 1.4s;">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V7a2 2 0 012-2h2m8-4H5a2 2 0 00-2 2v10a2 2 0 002 2h11l4 4V7a2 2 0 00-2-2z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Passionate Support</h4>
+                        <p class="text-slate-600">Our team lives and breathes technology. You'll be talking to someone who is genuinely excited to help.</p>
+                    </div>
+                </div>
+        </section>
+        
+
             </div>
         </section>
     </main>
 
+
     <!-- About Us Page Section -->
     <section id="about-page" class="hidden page-section py-20 bg-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-extrabold text-slate-800 mb-4 fade-in-up">About <span class="gradient-text">ElectroMart</span></h2>
+            <h2 class="text-4xl font-extrabold text-slate-800 mb-4 fade-in-up">About<span class="gradient-text">ElectroMart</span></h2>
             <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-12 fade-in-up" style="animation-delay: 0.2s;">Your Trusted Partner in Technology, Based in the Heart of Chennai.</p>
 
             <div class="text-left max-w-4xl mx-auto space-y-6 mb-16 fade-in-up" style="animation-delay: 0.4s;">

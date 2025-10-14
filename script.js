@@ -1,285 +1,244 @@
+/*
+========================================
+JAVASCRIPT LOGIC - Total Lines: ~500
+========================================
+*/
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ======================= Product Data ======================= //
-    // Expanded data with more items and details for a richer experience.
-    const allProductData = {
-        dealsOfTheDay: [
-            { id: 'deal1', name: "Kanjivaram Silk Saree", meta: "Festive Special", price: 15200, image: "https://placehold.co/600x800/6A0DAD/FFFFFF?text=Kanjivaram+Saree", specs: "Pure silk with zari work. Comes with a matching blouse piece." },
-            { id: 'deal2', name: "Handcrafted Jhumkas", meta: "Top Rated", price: 2800, image: "https://placehold.co/600x800/FFD700/000000?text=Gold+Jhumkas", specs: "Gold-plated brass with intricate Meenakari work and pearl drops." },
-            { id: 'deal3', name: "Men's Linen Kurta", meta: "Best Seller", price: 3150, image: "https://placehold.co/600x800/87CEEB/000000?text=Linen+Kurta", specs: "100% pure linen, regular fit, mandarin collar. Perfect for casual outings." },
-            { id: 'deal4', name: "Printed Cotton Bed-Sheet", meta: "Limited Time Deal", price: 1999, image: "https://placehold.co/600x800/20B2AA/FFFFFF?text=Cotton+Bed-Sheet", specs: "King size, 250 thread count cotton with two pillow covers." },
-            { id: 'deal5', name: "Embroidered Clutch Bag", meta: "Trending Now", price: 2500, image: "https://placehold.co/600x800/FF69B4/FFFFFF?text=Clutch+Bag", specs: "Velvet base with zardozi embroidery and a detachable chain strap." },
-            { id: 'deal6', name: "Solid Blue Casual Shirt", meta: "40% Off", price: 1250, image: "https://placehold.co/600x800/2E86C1/FFFFFF?text=Casual+Shirt", specs: "Cotton blend, slim fit, full sleeves. Ideal for work and casual wear." },
-        ],
-        newArrivals: [
-            { id: 'new1', name: "Chikankari Kurti", meta: "Just Launched", price: 4200, image: "https://placehold.co/600x800/F5F5DC/000000?text=Chikankari+Kurti", specs: "Hand-embroidered Georgette fabric from Lucknow. Sheer and elegant." },
-            { id: 'new2', name: "Bandhgala Suit", meta: "New Collection", price: 18999, image: "https://placehold.co/600x800/000080/FFFFFF?text=Bandhgala+Suit", specs: "Terry rayon fabric, includes jacket and trousers. Perfect for weddings." },
-            { id: 'new3', name: "Terracotta Jewelry Set", meta: "Eco-Friendly", price: 1750, image: "https://placehold.co/600x800/A0522D/FFFFFF?text=Terracotta+Set", specs: "Hand-painted baked clay necklace and matching earrings. Lightweight." },
-            { id: 'new4', name: "Pashmina Shawl", meta: "Winter Collection", price: 9800, image: "https://placehold.co/600x800/D8BFD8/000000?text=Pashmina+Shawl", specs: "Authentic Cashmere Pashmina from Kashmir. Extremely soft and warm." },
-            { id: 'new5', name: "Lehenga Choli Set", meta: "Bridal Wear", price: 22500, image: "https://placehold.co/600x800/E74C3C/FFFFFF?text=Lehenga+Choli", specs: "Net fabric with heavy embroidery, includes lehenga, choli, and dupatta." },
-        ],
-        boysItems: [
-            { id: 'boy1', name: "Boys' Kurta Pajama Set", meta: "Wedding Season", price: 2499, image: "https://placehold.co/600x800/FFA500/000000?text=Boys+Kurta", specs: "Silk blend fabric. Comfortable fit for kids aged 5-12 years." },
-            { id: 'boy2', name: "Nehru Jacket for Kids", meta: "Stylish & Modern", price: 1800, image: "https://placehold.co/600x800/B22222/FFFFFF?text=Nehru+Jacket", specs: "Jacquard fabric, can be worn over a kurta or shirt." },
-            { id: 'boy3', name: "Kids' Sherwani", meta: "Royal Look", price: 5500, image: "https://placehold.co/600x800/C0C0C0/000000?text=Kids+Sherwani", specs: "Raw silk with intricate embroidery. Comes with matching pajamas." },
-            { id: 'boy4', name: "Printed Casual Shirt", meta: "Daily Wear", price: 999, image: "https://placehold.co/600x800/4682B4/FFFFFF?text=Kids+Shirt", specs: "100% cotton, soft and breathable. Machine washable." },
-        ],
-        jewelryItems: [
-            { id: 'jewel1', name: "Uncut Polki Choker Set", meta: "Top Rated", price: 25500, image: "https://placehold.co/600x800/DAA520/FFFFFF?text=Polki+Choker", specs: "High-quality Polki stones with pearl accents. Includes choker and earrings." },
-            { id: 'jewel2', name: "Oxidised Silver Bangles", meta: "Bestseller", price: 5200, image: "https://placehold.co/600x800/C0C0C0/000000?text=Silver+Bangles", specs: "Set of 4 handcrafted bangles made from 92.5 Sterling Silver." },
-            { id: 'jewel3', name: "Meenakari Peacock Earrings", meta: "Limited Stock", price: 3850, image: "https://placehold.co/600x800/E6BF83/000000?text=Meenakari+Earrings", specs: "Enamel work on a gold-plated base, shaped like a peacock." },
-            { id: 'jewel4', name: "Traditional Bridal Nath", meta: "Wedding Special", price: 4100, image: "https://placehold.co/600x800/B22222/FFFFFF?text=Bridal+Nath", specs: "Kundan work with a pearl chain. A must-have for Indian brides." },
-        ],
-        homeDecorItems: [
-            { id: 'decor1', name: "Hand-Carved Wooden Panel", meta: "Made in Rajasthan", price: 7999, image: "https://placehold.co/600x800/A52A2A/FFFFFF?text=Wooden+Panel", specs: "Mango wood wall panel, 24x24 inches. Intricate floral carving." },
-            { id: 'decor2', name: "Jaipur Blue Pottery Vase", meta: "Hand-painted", price: 3500, image: "https://placehold.co/600x800/87CEEB/000000?text=Blue+Pottery", specs: "10-inch ceramic vase, perfect for flowers or as a standalone piece." },
-            { id: 'decor3', name: "Block Print Cushion Covers", meta: "Set of 5", price: 1850, image: "https://placehold.co/600x800/D2B48C/000000?text=Cushion+Covers", specs: "16x16 inches, cotton fabric. Features traditional Sanganeri block print." },
-            { id: 'decor4', name: "Dhokra Art Brass Idol", meta: "Collector's Item", price: 5100, image: "https://placehold.co/600x800/CD7F32/FFFFFF?text=Brass+Idol", specs: "Lost-wax casting technique from Bastar. Represents tribal art." },
-        ]
+    const state = {
+        products: [],
+        cart: [],
+        currentFilter: 'all',
+        searchQuery: ''
     };
-    
-    // Combine all products into a single array for easy lookup and search
-    const allProducts = Object.values(allProductData).flat();
 
-    // ======================= State Management ======================= //
-    let cart = [];
-    let wishlist = [];
-
-    // ======================= DOM Element Selection ======================= //
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
-    const cartCountElement = document.getElementById('cart-count');
-    const toastContainer = document.getElementById('toast-container');
+    const productGrid = document.getElementById('product-grid');
+    const productListContainer = document.getElementById('product-list-container');
+    const cartButton = document.getElementById('cart-button');
+    const closeCartBtn = document.getElementById('close-cart-btn');
+    const cartModal = document.getElementById('cart-modal');
+    const cartBody = document.getElementById('cart-body');
+    const cartCount = document.getElementById('cart-count');
+    const cartSubtotal = document.getElementById('cart-subtotal');
+    const cartFooter = document.getElementById('cart-footer');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const categoryFilters = document.getElementById('category-filters');
     const searchInput = document.getElementById('search-input');
-    
-    // Modal Elements
-    const modalOverlay = document.getElementById('quick-view-modal');
-    const modalCloseBtn = modalOverlay.querySelector('.modal-close-btn');
-    const modalImage = document.getElementById('modal-product-image');
-    const modalName = document.getElementById('modal-product-name');
-    const modalPrice = document.getElementById('modal-product-price');
-    const modalSpecs = document.getElementById('modal-product-specs');
-    const modalAddToCartBtn = modalOverlay.querySelector('.add-to-cart-btn');
+    const header = document.getElementById('header');
+    const mainNav = document.querySelector('header nav');
+    const toast = document.getElementById('toast-notification');
+    const toastMessage = document.getElementById('toast-message');
 
-    // ======================= Functions ======================= //
+    const productsDB = [
+        { id: 1, name: 'ProBook X1', price: 125000, category: 'Laptop', rating: 5, image: 'src/probookx1.jpg', description: 'Ultra-thin and powerful laptop for professionals.' },
+        { id: 2, name: 'Galaxy Z-Fold', price: 95000, category: 'Phone', rating: 4, image: 'src/galexyzfold.jpg', description: 'Experience the future with a foldable screen.' },
+        { id: 3, name: 'SilentKey Pro', price: 8000, category: 'Accessory', rating: 5, image: 'src/silentkeypro.jpg', description: 'Mechanical keyboard with silent switches.' },
+        { id: 4, name: 'GamerBook Pro', price: 180000, category: 'Laptop', rating: 5, image: 'src/gamerbookpro.jpg', description: 'High-performance gaming laptop with RGB.' },
+        { id: 5, name: 'Pixel Pro 9', price: 85000, category: 'Phone', rating: 4, image: 'src/pixel9pro.png', description: 'The ultimate Android experience with an amazing camera.' },
+        { id: 6, name: 'Aura Buds+', price: 12000, category: 'Accessory', rating: 4, image: 'src/aurabuds+.jpg', description: 'Noise-cancelling wireless earbuds.' },
+        { id: 7, name: 'Streamer Cam', price: 15000, category: 'Accessory', rating: 5, image: 'src/streamercam.png', description: '4K webcam perfect for streaming and video calls.' },
+        { id: 8, name: 'PowerBook M3', price: 210000, category: 'Laptop', rating: 5, image: 'src/powerbookm3.png', description: 'Unmatched performance in a sleek design.' },
+        { id: 9, name: 'Zenith Smartwatch', price: 25000, category: 'Accessory', rating: 4, image: 'src/Zenith Smartwatch.jpg', description: 'Track your fitness and stay connected in style.'},
+        { id: 10, name: 'Orion Tablet', price: 45000, category: 'Phone', rating: 4, image: 'src/Orion Tablet.jpg', description: 'A vibrant 11-inch display for work and play.'},
+        { id: 11, name: 'Nova Ultrabook', price: 98000, category: 'Laptop', rating: 4, image: 'src/Nova Ultrabook.png', description: 'Feather-light with an all-day battery life.'},
+        { id: 12, name: 'Echo Gaming Mouse', price: 6500, category: 'Accessory', rating: 5, image: 'src/Echo Gaming Mouse.jpg', description: 'Precision and speed for competitive gaming.'},
+        { id: 13, name: 'iPhone 17', price: 130000, category: 'Phone', rating: 5, image: 'src/iPhone 17.jpg', description: 'The next generation of mobile innovation.'},
+        { id: 14, name: 'Surface Pro 10', price: 155000, category: 'Laptop', rating: 5, image: 'src/Surface Pro 10.jpg', description: 'The versatility of a laptop, the freedom of a tablet.'},
+        { id: 15, name: 'Bose QC Ultra', price: 35000, category: 'Accessory', rating: 5, image: 'src/Bose QC Ultra.jpg', description: 'World-class noise cancellation and immersive audio.'},
+        { id: 16, name: 'Odyssey G9', price: 115000, category: 'Accessory', rating: 5, image: 'src/Odyssey G9.jpg', description: '49-inch curved gaming monitor for ultimate immersion.'},
+        { id: 17, name: 'Helios Gaming Headset', price: 18000, category: 'Accessory', rating: 5, image: 'src/Helios Gaming Headset.jpg', description: '7.1 surround sound for an immersive audio experience.'},
+        { id: 18, name: 'Chrono Smartwatch 2', price: 32000, category: 'Accessory', rating: 5, image: 'src/Chrono Smartwatch 2.jpg', description: 'Elegant design with advanced health monitoring.'},
+        { id: 19, name: 'Titan Workstation', price: 290000, category: 'Laptop', rating: 5, image: 'src/Titan Workstation.jpg', description: 'Desktop-grade power for creative professionals.'},
+        { id: 20, name: 'Spectra Phone X', price: 78000, category: 'Phone', rating: 4, image: 'src/Spectra Phone X.png', description: 'A stunning display and pro-grade camera system.'},
+        { id: 21, name: 'Portal VR Kit', price: 42000, category: 'Accessory', rating: 4, image: 'src/Portal VR Kit.png', description: 'Step into new worlds with our next-gen VR headset.'},
+        { id: 22, name: 'Atlas Powerbank', price: 4500, category: 'Accessory', rating: 4, image: 'src/Atlas Powerbank.jpg', description: '20,000mAh capacity to charge all your devices on the go.'},
+    ];
 
-    /**
-     * Renders a list of products into a specified grid container.
-     * @param {Array} products - The array of product objects to render.
-     * @param {string} gridId - The ID of the container element to render into.
-     */
-    function renderProducts(products, gridId) {
-        const gridContainer = document.getElementById(gridId);
-        if (!gridContainer) return;
+    const formatCurrency = amount => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount);
 
-        // If no products match, show a message
-        if (products.length === 0) {
-            gridContainer.innerHTML = `<p>No products found.</p>`;
-            return;
-        }
+    const showToast = message => {
+        toastMessage.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    };
 
-        gridContainer.innerHTML = products.map(product => {
-            const isWishlisted = wishlist.includes(product.id);
-            return `
-            <div class="product-card" data-product-id="${product.id}">
-                <button class="wishlist-btn ${isWishlisted ? 'active' : ''}" data-product-id="${product.id}" aria-label="Add to wishlist">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg>
-                </button>
-                <img src="${product.image.replace('600x800', '400x500')}" alt="${product.name}">
-                <div class="product-card-content">
-                    <h3>${product.name}</h3>
-                    <p class="product-meta">${product.meta}</p>
-                    <p class="product-price">₹${product.price.toLocaleString('en-IN')}</p>
-                </div>
-            </div>
-        `}).join('');
-    }
-    
-    /**
-     * Shows a toast notification message.
-     * @param {string} message - The message to display.
-     */
-    function showToast(message) {
-        if (!toastContainer) return;
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.textContent = message;
-        toastContainer.appendChild(toast);
-        // Automatically remove after 3 seconds
+    const renderStars = rating => Array.from({ length: 5 }, (_, i) => 
+        `<svg class="w-4 h-4 ${i < rating ? 'filled' : 'empty'}" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>`
+    ).join('');
+
+    const renderProducts = () => {
+        productListContainer.classList.add('loading');
+        
         setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.addEventListener('transitionend', () => toast.remove());
-        }, 3000);
-    }
-    
-    /**
-     * Adds an item to the cart. If item already exists, show message (future enhancement: increase quantity).
-     * @param {string} productId - The ID of the product to add.
-     */
-    function addToCart(productId) {
-        const product = allProducts.find(p => p.id === productId);
+            const filteredProducts = state.products
+                .filter(p => state.currentFilter === 'all' || p.category === state.currentFilter)
+                .filter(p => p.name.toLowerCase().includes(state.searchQuery.toLowerCase()));
+            
+            productGrid.innerHTML = '';
+            if (filteredProducts.length === 0) {
+                productGrid.innerHTML = `<p class="col-span-full text-center text-slate-500 py-10">No products found matching your criteria.</p>`;
+            } else {
+                filteredProducts.forEach((product, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card bg-white rounded-xl overflow-hidden shadow-sm fade-in-up';
+                    card.style.animationDelay = `${index * 50}ms`;
+                    card.innerHTML = `
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                        </div>
+                        <span class="category-badge">${product.category}</span>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-slate-800 pr-2">${product.name}</h3>
+                                <div class="star-rating flex items-center flex-shrink-0">${renderStars(product.rating)}</div>
+                            </div>
+                            <p class="text-sm text-slate-500 mt-1 mb-4 h-10">${product.description}</p>
+                            <div class="flex justify-between items-center">
+                                <p class="text-xl font-extrabold text-indigo-600">${formatCurrency(product.price)}</p>
+                                <button class="add-to-cart-btn text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center h-10 w-24" data-id="${product.id}">
+                                    <span class="btn-text add-text">Add</span>
+                                    <span class="btn-text added-text">Added!</span>
+                                </button>
+                            </div>
+                        </div>`;
+                    productGrid.appendChild(card);
+                });
+            }
+            productListContainer.classList.remove('loading');
+        }, 500);
+    };
+
+    const renderCart = () => {
+        const hasItems = state.cart.length > 0;
+        emptyCartMessage.classList.toggle('hidden', !hasItems);
+        cartFooter.classList.toggle('hidden', !hasItems);
+
+        cartBody.innerHTML = hasItems ? state.cart.map(item => `
+            <div class="cart-item flex items-center gap-4 py-4 border-b">
+                <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md">
+                <div class="flex-grow">
+                    <h4 class="font-semibold text-slate-800">${item.name}</h4>
+                    <p class="text-sm text-slate-500">${formatCurrency(item.price)}</p>
+                    <div class="cart-item-controls flex items-center mt-2">
+                        <button class="quantity-change w-7 h-7 rounded border font-bold" data-id="${item.id}" data-change="-1">-</button>
+                        <span class="w-10 text-center font-medium">${item.quantity}</span>
+                        <button class="quantity-change w-7 h-7 rounded border font-bold" data-id="${item.id}" data-change="1">+</button>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="font-bold text-slate-900">${formatCurrency(item.price * item.quantity)}</p>
+                    <button class="remove-from-cart text-red-500 hover:text-red-700 text-xs font-semibold mt-1" data-id="${item.id}">REMOVE</button>
+                </div>
+            </div>`).join('') : '';
+        updateCartSummary();
+    };
+
+    const updateCartSummary = () => {
+        const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+        const subtotal = state.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        
+        cartCount.textContent = totalItems;
+        cartSubtotal.textContent = formatCurrency(subtotal);
+        cartCount.classList.toggle('visible', totalItems > 0);
+    };
+
+    const addToCart = (productId, button) => {
+        const product = state.products.find(p => p.id === productId);
         if (!product) return;
 
-        // Check if product is already in cart
-        if (cart.find(item => item.id === productId)) {
-            showToast(`${product.name} is already in your cart.`);
-            return;
-        }
-
-        cart.push(product);
-        updateCartCount();
+        const cartItem = state.cart.find(item => item.id === productId);
+        if (cartItem) cartItem.quantity++;
+        else state.cart.push({ ...product, quantity: 1 });
+        
         showToast(`${product.name} added to cart!`);
-    }
+        renderCart();
 
-    /**
-     * Updates the cart count display in the header.
-     */
-    function updateCartCount() {
-        cartCountElement.textContent = cart.length;
-    }
+        button.classList.add('added');
+        setTimeout(() => button.classList.remove('added'), 1500);
+    };
 
-    /**
-     * Toggles an item in the wishlist.
-     * @param {string} productId - The ID of the product to toggle.
-     * @param {HTMLElement} buttonElement - The button element that was clicked.
-     */
-    function toggleWishlist(productId, buttonElement) {
-        const productIndex = wishlist.indexOf(productId);
-        const product = allProducts.find(p => p.id === productId);
+    const removeFromCart = productId => {
+        state.cart = state.cart.filter(item => item.id !== productId);
+        renderCart();
+    };
+    
+    const changeQuantity = (productId, change) => {
+        const cartItem = state.cart.find(item => item.id === productId);
+        if (!cartItem) return;
 
-        if (productIndex > -1) {
-            // Item is in wishlist, remove it
-            wishlist.splice(productIndex, 1);
-            buttonElement.classList.remove('active');
-            showToast(`${product.name} removed from wishlist.`);
-        } else {
-            // Item is not in wishlist, add it
-            wishlist.push(productId);
-            buttonElement.classList.add('active');
-            showToast(`${product.name} added to wishlist!`);
-        }
-    }
-
-    /**
-     * Opens the quick view modal with specific product details.
-     * @param {object} product - The product object to display.
-     */
-    function openModal(product) {
-        modalImage.src = product.image;
-        modalImage.alt = product.name;
-        modalName.textContent = product.name;
-        modalPrice.textContent = `₹${product.price.toLocaleString('en-IN')}`;
-        modalSpecs.innerHTML = `<p>${product.specs}</p>`;
-        
-        // Pass product ID to the modal's add to cart button
-        modalAddToCartBtn.dataset.productId = product.id;
-
-        modalOverlay.style.display = 'flex';
-    }
-
-    /**
-     * Closes the quick view modal.
-     */
-    function closeModal() {
-        modalOverlay.style.display = 'none';
-    }
-
-    /**
-     * Filters and re-renders all product sections based on a search query.
-     * @param {string} query - The search term.
-     */
-    function handleSearch(query) {
-        const lowerCaseQuery = query.toLowerCase().trim();
-
-        if (lowerCaseQuery === '') {
-            // If search is cleared, render all products
-            renderAllSections();
+        cartItem.quantity += change;
+        if (cartItem.quantity <= 0) removeFromCart(productId);
+        else renderCart();
+    };
+    
+    const updateFilter = category => {
+        if (category === 'about') {
+            alert("This would lead to an 'About Us' page in a full application.");
             return;
         }
+        state.currentFilter = category;
+        document.querySelectorAll('[data-category]').forEach(el => el.classList.toggle('active', el.dataset.category === category));
+        renderProducts();
+    };
 
-        const filteredProducts = allProducts.filter(product => 
-            product.name.toLowerCase().includes(lowerCaseQuery) ||
-            product.meta.toLowerCase().includes(lowerCaseQuery)
-        );
-
-        // Display filtered products in the first grid and hide other sections for simplicity
-        // A more advanced implementation could render into respective categories.
-        document.querySelectorAll('.product-section').forEach((section, index) => {
-            const sectionHeader = section.querySelector('.section-header');
-            const grid = section.querySelector('.product-grid');
-            
-            if(index === 0) {
-                 section.style.display = 'block';
-                 sectionHeader.querySelector('.section-title').innerText = `Search Results for "${query}"`;
-                 renderProducts(filteredProducts, grid.id);
-            } else {
-                section.style.display = 'none';
-            }
-        });
-    }
-    
-    /**
-     * Renders all product sections with their original data.
-     */
-    function renderAllSections() {
-        document.querySelectorAll('.product-section').forEach(section => section.style.display = 'block');
-        
-        document.querySelector('#deals-section .section-title').innerText = 'Deals of the Day';
-
-        renderProducts(allProductData.dealsOfTheDay, 'product-grid');
-        renderProducts(allProductData.newArrivals, 'new-arrivals-grid');
-        renderProducts(allProductData.boysItems, 'boys-items-grid');
-        renderProducts(allProductData.jewelryItems, 'jewelry-items-grid');
-        renderProducts(allProductData.homeDecorItems, 'home-decor-grid');
-    }
-
-    // ======================= Event Listeners ======================= //
-
-    // Toggle mobile navigation
-    mobileMenuBtn.addEventListener('click', () => mobileNav.classList.toggle('active'));
-
-    // Main content click delegation (for opening modal and wishlist)
-    document.querySelector('main').addEventListener('click', (event) => {
-        const wishlistBtn = event.target.closest('.wishlist-btn');
-        const productCard = event.target.closest('.product-card');
-
-        if (wishlistBtn) {
-            // Prevent modal from opening when wishlist is clicked
-            event.stopPropagation(); 
-            const productId = wishlistBtn.dataset.productId;
-            toggleWishlist(productId, wishlistBtn);
-        } else if (productCard) {
-            const productId = productCard.dataset.productId;
-            const product = allProducts.find(p => p.id === productId);
-            if (product) {
-                openModal(product);
-            }
+    const handleProductGridClick = e => {
+        const button = e.target.closest('.add-to-cart-btn');
+        if (button) {
+            const productId = parseInt(button.dataset.id, 10);
+            addToCart(productId, button);
         }
-    });
+    };
+    
+    const handleCartBodyClick = e => {
+        const target = e.target;
+        const removeBtn = target.closest('.remove-from-cart');
+        const quantityBtn = target.closest('.quantity-change');
+        if (removeBtn) removeFromCart(parseInt(removeBtn.dataset.id, 10));
+        if (quantityBtn) changeQuantity(parseInt(quantityBtn.dataset.id, 10), parseInt(quantityBtn.dataset.change, 10));
+    };
+    
+    const handleFilterClick = e => {
+        if (e.target.tagName === 'BUTTON') updateFilter(e.target.dataset.category);
+    };
 
-    // Modal Event Listeners
-    modalCloseBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (event) => {
-        if (event.target === modalOverlay) closeModal();
-    });
-    modalAddToCartBtn.addEventListener('click', (event) => {
-        const productId = event.target.dataset.productId;
-        addToCart(productId);
-        closeModal();
-    });
+    const handleNavClick = e => {
+        const link = e.target.closest('.nav-link');
+        if (link) {
+            e.preventDefault();
+            const category = link.dataset.category;
+            updateFilter(category);
+            if (category !== 'about') document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     
-    // Search input listener
-    let debounceTimer;
-    searchInput.addEventListener('input', (event) => {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => {
-            handleSearch(event.target.value);
-        }, 300); // Debounce to avoid firing on every keystroke
-    });
-    
-    // ======================= Initial Page Load ======================= //
-    renderAllSections();
+    const handleSearch = e => {
+        state.searchQuery = e.target.value;
+        clearTimeout(this.searchTimeout);
+        this.searchTimeout = setTimeout(renderProducts, 300);
+    };
+
+    const handleScroll = () => header.classList.toggle('scrolled', window.scrollY > 50);
+
+    const openCart = () => cartModal.classList.remove('hidden');
+    const closeCart = () => cartModal.classList.add('hidden');
+
+    const init = () => {
+        state.products = productsDB;
+        renderProducts();
+        renderCart();
+
+        productGrid.addEventListener('click', handleProductGridClick);
+        cartButton.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closeCart);
+        cartModal.addEventListener('click', e => e.target === cartModal && closeCart());
+        cartBody.addEventListener('click', handleCartBodyClick);
+        categoryFilters.addEventListener('click', handleFilterClick);
+        searchInput.addEventListener('input', handleSearch);
+        window.addEventListener('scroll', handleScroll);
+        mainNav.addEventListener('click', handleNavClick);
+    };
+
+    init();
 });
+
 
